@@ -46,12 +46,21 @@ public class doctor_Pages extends StartupPage {
 		super(driver);
 	}
 
-	/**@Test1
-	 * about this method loginTohealthAppByGivenValidCredetial() 
-	 * @param : Map<String, String>
-	 * @description : fill usernameTextbox & passwordTextbox and click on sign in button
-	 * @return : Boolean
-	 * @author : YAKSHA
+	/**
+	 * @Test 1.1
+	 * This method logs into the Health App using the provided valid credentials.
+	 *
+	 * @param expectedData A map containing user credentials with keys "username" and "password".
+	 * @return true if the Doctor tab is displayed after successful login; false otherwise.
+	 * @throws Exception if any step in the login process fails.
+	 *
+	 * Steps performed:
+	 * - Locate and highlight the username textbox, then enter the username.
+	 * - Locate and highlight the password textbox, then enter the password.
+	 * - Locate and highlight the sign-in button, then click it.
+	 * - Verify if the Doctor tab is displayed after login.
+	 *
+	 * Author: YAKSHA
 	 */
 	public boolean loginToHealthAppByGivenValidCredetial(Map<String, String> expectedData) throws Exception {
 		Boolean textIsDisplayed = false;
@@ -80,12 +89,19 @@ public class doctor_Pages extends StartupPage {
 		return textIsDisplayed;
 	}
 
-	/**@Test1.2
-	 * about this method verifyTitleOfThePage() 
-	 * @param : null
-	 * @description : it will navigate to the URL and validate the title of the current page.
-	 * @return : String
-	 * @author : Yaksha
+	/**
+	 * @Test 1.2
+	 * This method retrieves and returns the title of the current web page.
+	 *
+	 * @param none
+	 * @return The title of the current page as a String.
+	 * @throws Exception if retrieving the page title fails.
+	 *
+	 * Steps performed:
+	 * - Fetch the title of the current web page using the commonEvents utility.
+	 * - Print the title to the console.
+	 *
+	 * Author: Yaksha
 	 */
 	public String verifyTitleOfThePage() throws Exception {
 		String pageTitle = "";
@@ -98,12 +114,18 @@ public class doctor_Pages extends StartupPage {
 		return pageTitle;
 	}
 
-	/**@Test1.3
-	 * about this method verifyURLOfThePage() 
-	 * @param : null
-	 * @description : it will navigate to the URL and validate the URL of the current page.
-	 * @return : String
-	 * @author : Yaksha
+	/**
+	 * @Test 1.3
+	 * This method retrieves and returns the current URL of the web page.
+	 * @param none
+	 * @return The current URL of the page as a String.
+	 * @throws Exception if retrieving the URL fails.
+	 *
+	 * Steps performed:
+	 * - Fetch the current URL using the commonEvents utility.
+	 * - Print the URL to the console.
+	 *
+	 * Author: Yaksha
 	 */
 	public String verifyURLOfThePage() throws Exception {
 		String urlofThepage = "";
@@ -116,12 +138,22 @@ public class doctor_Pages extends StartupPage {
 		return urlofThepage;
 	}
 
-	/**@Test2
-	 * about this method verifyAllSubModulesArePresentAndClickOnDispensary() 
-	 * @param : null
-	 * @description : Verify that Doctor module is present or not ,If Present then expand the Doctor module and verify all presence of sub mudules under the Doctor module
-	 * @return : Boolean
-	 * @author : Yaksha
+	/**
+	 * @Test 2
+	 * This method verifies the presence of the Doctor module and its submodules,
+	 * then clicks on the toggle to expand and check all submodule visibility.
+	 *
+	 * @param none
+	 * @return true if the Doctor tab and all its submodules (Outpatient, Inpatient Department,
+	 *         and Patient Record) are displayed; false otherwise.
+	 * @throws Exception if any element is not found or an action fails.
+	 *
+	 * Steps performed:
+	 * - Check if the Doctor tab is displayed.
+	 * - If present, click on the toggle to expand the Doctor module.
+	 * - Verify the presence of all submodules under the Doctor module.
+	 * 
+	 * Author: Yaksha
 	 */
 	public Boolean verifyAllSubModulesArePresentAndClickOnDispensary() throws Exception {
 		boolean allSubModulesAreDisplayed = false;
@@ -139,14 +171,23 @@ public class doctor_Pages extends StartupPage {
 		return allSubModulesAreDisplayed;
 	}
 
-
-	/**@Test3
-	 * about this method tickOnCheckBoxValidateTheCheckBoxThenUntick() 
-	 * @param : null
-	 * @description : On the Doctor Module's "Out Patient" Sub module, select the "Show Doctor Wise Patient List" check box and verify that is "Show Doctor Wise Patient List" check box is selected or not?
-                      After validation, uncheck the "Show Doctor Wise Patient List" check box.
-	 * @return : Boolean
-	 * @author : Yaksha
+	/**
+	 * @Test3
+	 * This method selects the "Show Doctor Wise Patient List" checkbox under the 
+	 * Doctor Module's "Out Patient" submodule, verifies if it is selected, 
+	 * and then unchecks it.
+	 *
+	 * @param none
+	 * @return true if the checkbox is found, selected, and successfully unchecked; false otherwise.
+	 * @throws Exception if any interaction with the checkbox fails.
+	 *
+	 * Steps performed:
+	 * - Verify the "Show Doctor Wise Patient List" checkbox is displayed.
+	 * - Click to check the checkbox.
+	 * - Validate whether the checkbox is selected.
+	 * - Click again to uncheck the checkbox.
+	 *
+	 * Author: Yaksha
 	 */
 	public Boolean tickOnCheckBoxValidateTheCheckBoxThenUntick() throws Exception {
 		boolean checkBoxIsDisplayed = false;
@@ -165,12 +206,21 @@ public class doctor_Pages extends StartupPage {
 		return checkBoxIsDisplayed;
 	}
 
-	/**@Test4
-	 * about this method selectNEUROSURGERYFromDepartmentDropdownAndVerifySelection() 
-	 * @param : get the data from JSON file as type Map<String, String> expectedData
-	 * @description : it will select the country as per JSON expected data
-	 * @return : String
-	 * @author : YAKSHA
+	/**
+	 * @Test4
+	 * This method selects the department (e.g., "NEUROSURGERY") from the Department dropdown 
+	 * in the In-Patient Department submodule, using the value provided in the JSON data.
+	 *
+	 * @param expectedData A map containing the expected department name with key "departmentName".
+	 * @return The name of the selected option from the dropdown.
+	 * @throws Exception if the dropdown interaction or selection verification fails.
+	 *
+	 * Steps performed:
+	 * - Click on the In-Patient Department submodule.
+	 * - Select the department from the dropdown using the visible text from expectedData.
+	 * - Retrieve and return the currently selected option to verify the selection.
+	 *
+	 * Author: YAKSHA
 	 */
 	public String selectNEUROSURGERYFromDepartmentDropdownAndVerifySelection(Map<String, String> expectedData) throws Exception {
 
@@ -187,14 +237,21 @@ public class doctor_Pages extends StartupPage {
 		}	
 	}
 
-
-	/**@Test5
-	 * about this method verifyMyFavoritesAndPendingListButtonsArePresent() 
-	 * @param : null
-	 * @description : On the Doctor Module's "In Patient Department" Sub-Module, verify that "My Favorites" and "Pending List" buttons are present inside the 
-                     "In Patient Department" Page
-	 * @return : Boolean
-	 * @author : Yaksha
+	/**
+	 * @Test5
+	 * This method verifies the presence of the "My Favorites" and "Pending List" buttons
+	 * on the "In Patient Department" page under the Doctor Module.
+	 *
+	 * @param none
+	 * @return true if both "My Favorites" and "Pending List" buttons are displayed; false otherwise.
+	 * @throws Exception if element visibility checks fail.
+	 *
+	 * Steps performed:
+	 * - Check if the "My Favorites" button is displayed.
+	 * - Check if the "Pending List" button is displayed.
+	 * - Return true if both are present; otherwise, return false.
+	 *
+	 * Author: Yaksha
 	 */
 	public Boolean verifyMyFavoritesAndPendingListButtonsArePresent() throws Exception {
 		boolean buttonsAreDisplayed = false;
@@ -209,15 +266,23 @@ public class doctor_Pages extends StartupPage {
 		}	
 		return buttonsAreDisplayed;
 	}
-
-
-	/**@Test6
-	 * about this method validateTheTitleNameOfTheFreeTextTemplateForm() 
-	 * @param : null
-	 * @description : On the Doctor Module's "In Patient Department" Sub-Module, clicking on "Pending List" buttons and it opens pending table record.
-                      Then click on "Show Details" from the first table record and it open the "Free Text Template" form. Then validate the title name of the  "Free Text Template" form
-	 * @return : String
-	 * @author : Yaksha
+	
+	/**
+	 * @Test6
+	 * This method validates the title of the "Free Text Template" form in the 
+	 * "In Patient Department" submodule under the Doctor Module.
+	 *
+	 * @param none
+	 * @return The title text of the "Free Text Template" form as a String.
+	 * @throws Exception if any step in the navigation or title retrieval fails.
+	 *
+	 * Steps performed:
+	 * - Click on the "Pending List" button to display pending table records.
+	 * - Click on "Show Details" of the first table record.
+	 * - Wait for the "Free Text Template" form to appear.
+	 * - Retrieve and return the title of the form.
+	 *
+	 * Author: Yaksha
 	 */
 	public String validateTheTitleNameOfTheFreeTextTemplateForm() throws Exception {
 		String pageName = "";
@@ -233,16 +298,24 @@ public class doctor_Pages extends StartupPage {
 		}	
 		return pageName;
 	}
-
-
-	/**@Test7
-	 * about this method validateTheDoctorName() 
-	 * @param : null
-	 * @description : On the Doctor Module's "In Patient Department" Sub-Module, a table record pre display which is filter by department as  "NEUROSURGERY".
-                      Then get the "Doctor Name" where the "Hospital Number" is "2312000010".
-                      Then Validate the Doctor Name is Dr. Amit Shah
-	 * @return : String
-	 * @author : Yaksha
+	
+	/**
+	 * @Test7
+	 * This method retrieves and validates the doctor's name for a specific hospital number
+	 * in the "In Patient Department" submodule under the Doctor Module.
+	 *
+	 * @param none
+	 * @return The doctor's name as a String.
+	 * @throws Exception if any step fails while closing the Free Text Template, navigating to the Pending List, or fetching the doctor's name.
+	 *
+	 * Steps performed:
+	 * - Close the "Free Text Template" form by clicking the 'X' button.
+	 * - Click on the "Pending List" button to open the patient table.
+	 * - Wait for the table to load.
+	 * - Retrieve the doctor's name for the patient with Hospital Number "2312000010".
+	 * - Return the doctor's name (expected: "Dr. Amit Shah").
+	 *
+	 * Author: Yaksha
 	 */
 	public String validateTheDoctorName() throws Exception {
 		String doctorName = "";
@@ -257,16 +330,25 @@ public class doctor_Pages extends StartupPage {
 		}	
 		return doctorName;
 	}
-
-
-	/**@Test8
-	 * about this method verifyTheErrorMessageInSearchProblemField() 
-	 * @param : null
-	 * @description : On the "Surgical History" Menu Tab of Problem module of the Profile "Sonia Gandhi", clicking on the "+Add New" button from Surgical History List and it will open a "Add Surgical History" form.
-                      Then click on "Add" button of "Add Surgical History" form directly without filling any information, it will throw an error message in "Search Problem*" field. 
-                      Then Validate that Error Message : Select ICD-11 Code
-	 * @return : String
-	 * @author : Yaksha
+	
+	/**
+	 * @Test8
+	 * This method validates the error message displayed in the "Search Problem*" field
+	 * when attempting to submit an empty "Add Surgical History" form for the profile "Sonia Gandhi".
+	 *
+	 * @param none
+	 * @return The error message shown in the "Search Problem*" field.
+	 * @throws Exception if any interaction fails while navigating to the form or retrieving the message.
+	 *
+	 * Steps performed:
+	 * - Open the profile "Sonia Gandhi" using the preview icon.
+	 * - Navigate to the "Problem" module and select the "Surgical History" tab.
+	 * - Click the "+Add New" button to open the "Add Surgical History" form.
+	 * - Click the "Add" button without entering any data.
+	 * - Capture and return the error message displayed in the "Search Problem*" field 
+	 *    (expected: "Select ICD-11 Code").
+	 *
+	 * Author: Yaksha
 	 */
 	public String verifyTheErrorMessageInSearchProblemField() throws Exception {
 		String errorMessage = "";

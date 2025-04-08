@@ -5,6 +5,7 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.File;
 
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -19,20 +20,27 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class TestBase 
 {
 	public WebDriver driver;
+	private String downloadDir;
 	
 	public void initialize(Map<String, String> map) throws Exception
 	{
 		
 			String browser = map.get("browser");
+			downloadDir = System.getProperty("user.dir")+"\\downloads";
 			if(browser.equalsIgnoreCase("Chrome"))
-			{						
-
-		        // Set system property to specify the location of ChromeDriver
-		        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\driver\\chromedriver.exe");
-		        ChromeOptions options = new ChromeOptions();
-				options.addArguments("--start-maximized");
-		        options.addArguments("--disable-notifications");
-				driver = new ChromeDriver(options);
+			{	
+	
+				//new code
+				ChromeOptions options = new ChromeOptions();
+			    Map<String, Object> prefs = new HashMap<>();
+			    prefs.put("download.default_directory", downloadDir);
+			    prefs.put("download.prompt_for_download", false);
+			    prefs.put("download.directory_upgrade", true);
+			    prefs.put("safebrowsing.enabled", false);
+			    options.setExperimentalOption("prefs", prefs);
+			    WebDriverManager.chromedriver().setup();
+			    driver = new ChromeDriver(options);
+				driver.manage().window().maximize();
 			}
 			else if(browser.equalsIgnoreCase("Firefox"))
 			{
@@ -122,5 +130,22 @@ public class TestBase
 			return false;
 		}
 	}
+	
+	public void createDownloadDirectory() {
+        File dir = new File(downloadDir);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+    }
+	
+	public void deleteDownloadDirectory() {
+        File dir = new File(downloadDir);
+        if (dir.exists()) {
+            for (File file : dir.listFiles()) {
+                file.delete();
+            }
+            dir.delete();
+        }
+    }
 
 }
